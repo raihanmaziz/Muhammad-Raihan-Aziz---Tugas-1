@@ -24,19 +24,17 @@ public class LifeLineController : MonoBehaviour
         
     }
 
-/*
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision == zombie)
+        if (collision.CompareTag("Zombie"))
         {
-            zombieController.ResetPosition();
             lifeManager.LossLives();
+            Destroy(collision.gameObject);
         }
-        if (collision == human)
+        if (collision.CompareTag("Human"))
         {
-            humanController.ResetPosition();
             scoreManager.AddScore();
+            Destroy(collision.gameObject);
         }
     }
-*/
 }

@@ -5,12 +5,12 @@ using UnityEngine;
 public class ZombieController : MonoBehaviour
 {
     public Vector2 speed;
-    public Vector2 resetPosition;
-    public Collider2D lifeLine;
+//    public Vector2 resetPosition;
+//    public Collider2D lifeLine;
 
     private Rigidbody2D rig;
     public ScoreManager scoreManager;
-    public LifeManager lifeManager;
+//    public LifeManager lifeManager;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class ZombieController : MonoBehaviour
         scoreManager.AddScore();
         Destroy(gameObject);
     }
-
+/*
     public void ResetPosition()
     {
         resetPosition.x = Random.Range(-8, 8);
@@ -40,10 +40,11 @@ public class ZombieController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision == lifeLine)
+        if (collision.CompareTag("LifeLine"))
         {
             lifeManager.LossLives();
             Destroy(gameObject);
         }
     }
+*/
 }
