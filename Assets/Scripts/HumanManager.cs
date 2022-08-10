@@ -9,7 +9,7 @@ public class HumanManager : MonoBehaviour
     public int spawnCount;
     public int spawnInterval;
     public int waveCounter;
-    public GameObject human;
+    public HumanController human;
     private float timer;
     private int waveDelay;
 
@@ -51,7 +51,8 @@ public class HumanManager : MonoBehaviour
             }
             return;
         }
-        Instantiate(human, new Vector3(Random.Range(-8, 8), 6, 1), Quaternion.identity);
+        HumanController humanSpawn = Instantiate(human, new Vector3(Random.Range(-8, 8), 6, 1), Quaternion.identity);
+        humanSpawn.SetterLifeManager(lifeManager);
         spawnCount += 1;
     }
 }

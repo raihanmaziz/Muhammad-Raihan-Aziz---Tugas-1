@@ -9,11 +9,12 @@ public class ZombieManager : MonoBehaviour
     public int spawnCount;
     public int spawnInterval;
     public int waveCounter;
-    public GameObject zombie;
+    public ZombieController zombie;
     private float timer;
 
     public WaveManager waveManager;
     public LifeManager lifeManager;
+    public ScoreManager scoreManager;
     
     // Start is called before the first frame update
     void Start()
@@ -51,7 +52,8 @@ public class ZombieManager : MonoBehaviour
             }
             return;
         }
-        Instantiate(zombie, new Vector3(Random.Range(-8, 8), 6, 1), Quaternion.identity);
+        ZombieController zombieSpawn = Instantiate(zombie, new Vector3(Random.Range(-8, 8), 6, 1), Quaternion.identity);
+        zombieSpawn.SetterScoreManager(scoreManager); 
         spawnCount += 1;
     }
 }

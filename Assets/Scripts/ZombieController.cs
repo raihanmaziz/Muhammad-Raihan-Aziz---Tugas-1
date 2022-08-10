@@ -30,6 +30,11 @@ public class ZombieController : MonoBehaviour
         scoreManager.AddScore();
         Destroy(gameObject);
     }
+
+    public void SetterScoreManager(ScoreManager scoreManagerTemp)
+    {
+        scoreManager = scoreManagerTemp;
+    }
 /*
     public void ResetPosition()
     {

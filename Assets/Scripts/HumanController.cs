@@ -30,6 +30,11 @@ public class HumanController : MonoBehaviour
         lifeManager.LossHuman();
         Destroy(gameObject);
     }
+
+    public void SetterLifeManager(LifeManager lifeManagerTemp)
+    {
+        lifeManager = lifeManagerTemp;
+    }
 /*
     public void ResetPosition()
     {
