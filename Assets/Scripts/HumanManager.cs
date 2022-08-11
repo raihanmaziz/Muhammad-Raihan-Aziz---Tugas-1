@@ -51,8 +51,7 @@ public class HumanManager : MonoBehaviour
             }
             return;
         }
-        HumanController humanSpawn = Instantiate(human, new Vector3(Random.Range(-8, 8), 6, 1), Quaternion.identity);
-        humanSpawn.SetterLifeManager(lifeManager);
+        HumanController humanSpawn = Instantiate(human, new Vector3(Random.Range(-8, 8), 6, 2), Quaternion.identity);
         spawnCount += 1;
     }
 }

@@ -16,10 +16,17 @@ public class LifeManager : MonoBehaviour
 
     public void LossLives()
     {
-        lives -= 1;
-        if (lives == 0)
+        if (isOver)
         {
-            GameOver();
+            Debug.Log("Game already over!");
+        }
+        else
+        {
+            lives -= 1;
+            if (lives == 0)
+            {
+                GameOver();
+            }
         }
     }
 

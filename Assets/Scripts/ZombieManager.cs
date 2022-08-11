@@ -10,6 +10,7 @@ public class ZombieManager : MonoBehaviour
     public int spawnInterval;
     public int waveCounter;
     public ZombieController zombie;
+    public ZombieCrazyController zombieCrazy;
     private float timer;
 
     public WaveManager waveManager;
@@ -52,8 +53,14 @@ public class ZombieManager : MonoBehaviour
             }
             return;
         }
-        ZombieController zombieSpawn = Instantiate(zombie, new Vector3(Random.Range(-8, 8), 6, 1), Quaternion.identity);
-        zombieSpawn.SetterScoreManager(scoreManager); 
+        if ((spawnCount % 3) == 2)
+        {
+            ZombieCrazyController zombieCrazySpawn = Instantiate(zombieCrazy, new Vector3(Random.Range(-8, 8), 6, 1), Quaternion.identity);
+        }
+        else
+        {
+            ZombieController zombieSpawn = Instantiate(zombie, new Vector3(Random.Range(-8, 8), 6, 1), Quaternion.identity);
+        }
         spawnCount += 1;
     }
 }

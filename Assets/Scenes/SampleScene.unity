@@ -999,10 +999,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a238566b47d9c46bf77daee51dffcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 0}
-  zombieController: {fileID: 0}
-  human: {fileID: 0}
-  humanController: {fileID: 0}
   lifeManager: {fileID: 328017273}
   scoreManager: {fileID: 1934137651}
 --- !u!61 &1154372239
@@ -1148,9 +1144,56 @@ MonoBehaviour:
   spawnInterval: 1
   waveCounter: 0
   zombie: {fileID: 6530892621696145544, guid: 1fab23dc652292a4ab726742d5fe2416, type: 3}
+  zombieCrazy: {fileID: 1327115819265077929, guid: 587883b5e946d754087fe4f23b7fa154, type: 3}
   waveManager: {fileID: 1881461311}
   lifeManager: {fileID: 328017273}
   scoreManager: {fileID: 1934137651}
+--- !u!1 &1238392713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1238392714}
+  - component: {fileID: 1238392715}
+  m_Layer: 0
+  m_Name: TapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1238392714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238392713}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.067443, y: 0.3558265, z: 4.203787}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1238392715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238392713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb538852459241c4a81963ff55b650e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 1934137651}
+  lifeManager: {fileID: 328017273}
 --- !u!1 &1282965339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,7 +1479,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1815225455
 GameObject:
@@ -1814,6 +1857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  lifeManager: {fileID: 328017273}
 --- !u!114 &1934137652
 MonoBehaviour:
   m_ObjectHideFlags: 0
