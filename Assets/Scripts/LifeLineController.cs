@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class LifeLineController : MonoBehaviour
 {
-//    public Collider2D zombie;
-//    public ZombieController zombieController;
-//    public Collider2D human;
-//    public HumanController humanController;
-
-    public LifeManager lifeManager;
-    public ScoreManager scoreManager;
+    [SerializeField] private LifeManager lifeManager;
+    [SerializeField] private ScoreManager scoreManager;
 
     // Start is called before the first frame update
     void Start()

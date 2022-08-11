@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class ZombieManager : MonoBehaviour
 {
-    public int maxSpawn;
-    public int maxSpawnCount;
-    public int spawnCount;
-    public int spawnInterval;
-    public int waveCounter;
-    public ZombieController zombie;
-    public ZombieCrazyController zombieCrazy;
+    [SerializeField] private int maxSpawn;
+    [SerializeField] private int maxSpawnCount;
+    [SerializeField] private int spawnCount;
+    [SerializeField] private int spawnInterval;
+    [SerializeField] private int waveCounter;
+    [SerializeField] private ZombieController zombie;
+    [SerializeField] private ZombieCrazyController zombieCrazy;
     private float timer;
 
-    public WaveManager waveManager;
-    public LifeManager lifeManager;
-    public ScoreManager scoreManager;
+    [SerializeField] private WaveManager waveManager;
+    [SerializeField] private LifeManager lifeManager;
+    [SerializeField] private ScoreManager scoreManager;
     
     // Start is called before the first frame update
     void Start()

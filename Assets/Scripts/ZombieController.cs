@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ZombieController : BaseObject
 {
-//    public Vector2 speed;
-
     private Rigidbody2D rig;
 
     // Start is called before the first frame update
