@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class HumanManager : MonoBehaviour
 {
-    public int maxSpawn;
-    public int maxSpawnCount;
-    public int spawnCount;
-    public int spawnInterval;
-    public int waveCounter;
-    public HumanController human;
+    [SerializeField] private int maxSpawn;
+    [SerializeField] private int maxSpawnCount;
+    [SerializeField] private int spawnCount;
+    [SerializeField] private int spawnInterval;
+    [SerializeField] private int waveCounter;
+    [SerializeField] private HumanController human;
     private float timer;
     private int waveDelay;
 
-    public WaveManager waveManager;
-    public LifeManager lifeManager;
+    [SerializeField] private WaveManager waveManager;
+    [SerializeField] private LifeManager lifeManager;
 
     // Start is called before the first frame update
     void Start()
@@ -51,8 +51,7 @@ public class HumanManager : MonoBehaviour
             }
             return;
         }
-        HumanController humanSpawn = Instantiate(human, new Vector3(Random.Range(-8, 8), 6, 1), Quaternion.identity);
-        humanSpawn.SetterLifeManager(lifeManager);
+        HumanController humanSpawn = Instantiate(human, new Vector3(Random.Range(-8, 8), 6, 2), Quaternion.identity);
         spawnCount += 1;
     }
 }

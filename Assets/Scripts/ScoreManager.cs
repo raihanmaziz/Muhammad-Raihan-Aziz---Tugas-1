@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     public int score;
+    [SerializeField] private LifeManager lifeManager;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,13 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore()
     {
-        score += 10;
+        if (lifeManager.isOver)
+        {
+            Debug.Log("Game already over!");
+        }
+        else
+        {
+            score += 10;
+        }
     }
 }

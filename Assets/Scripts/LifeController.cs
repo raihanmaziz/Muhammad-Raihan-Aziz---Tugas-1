@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class LifeController : MonoBehaviour
 {
-    public TextMeshProUGUI lives;
+    [SerializeField] private TextMeshProUGUI lives;
 
-    public LifeManager manager;
+    [SerializeField] private LifeManager manager;
 
     // Update is called once per frame
     private void Update()

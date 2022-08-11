@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
-    public TextMeshProUGUI wave;
+    [SerializeField] private TextMeshProUGUI wave;
 
-    public WaveManager waveManager;
+    [SerializeField] private WaveManager waveManager;
     // Start is called before the first frame update
     void Start()
     {

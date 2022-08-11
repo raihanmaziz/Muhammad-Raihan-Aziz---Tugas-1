@@ -5,7 +5,7 @@ using UnityEngine;
 public class LifeManager : MonoBehaviour
 {
     public int lives;
-    public GameObject gameOver;
+    [SerializeField] private GameObject gameOver;
     public bool isOver;
 
     // Start is called before the first frame update
@@ -16,10 +16,17 @@ public class LifeManager : MonoBehaviour
 
     public void LossLives()
     {
-        lives -= 1;
-        if (lives == 0)
+        if (isOver)
         {
-            GameOver();
+            Debug.Log("Game already over!");
+        }
+        else
+        {
+            lives -= 1;
+            if (lives == 0)
+            {
+                GameOver();
+            }
         }
     }
 
