@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ZombieCrazyController : BaseObject
 {
+    [SerializeField] private ScoreManager scoreManager;
     private Rigidbody2D rig;
     private float timer;
     private int clampBorderOffset = 1;
@@ -52,5 +53,16 @@ public class ZombieCrazyController : BaseObject
             r.position = new Vector2(frustrumPositionLeftX + clampBorderOffset, r.position.y);
         }
 
+    }
+
+    public override void Raycasted()
+    {
+        scoreManager.AddScore();
+        Destroy(gameObject);
+    }
+
+    public void SetManager(ScoreManager temp)
+    {
+        scoreManager = temp;
     }
 }

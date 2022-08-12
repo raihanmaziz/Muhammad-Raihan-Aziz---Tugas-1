@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ZombieController : BaseObject
 {
+    [SerializeField] private ScoreManager scoreManager;
     private Rigidbody2D rig;
 
     // Start is called before the first frame update
@@ -22,5 +23,16 @@ public class ZombieController : BaseObject
     {
         rig = GetComponent<Rigidbody2D>();
         rig.velocity = _speed;
+    }
+
+    public override void Raycasted()
+    {
+        scoreManager.AddScore();
+        Destroy(gameObject);
+    }
+
+    public void SetManager(ScoreManager temp)
+    {
+        scoreManager = temp;
     }
 }

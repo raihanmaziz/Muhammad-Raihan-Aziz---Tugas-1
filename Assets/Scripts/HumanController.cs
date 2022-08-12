@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HumanController : BaseObject
 {
+    [SerializeField] private LifeManager lifeManager;
     private Rigidbody2D rig;
 
     // Start is called before the first frame update
@@ -24,4 +25,14 @@ public class HumanController : BaseObject
         rig.velocity = _speed;
     }
 
+    public override void Raycasted()
+    {
+        lifeManager.LossHuman();
+        Destroy(gameObject);
+    }
+
+    public void SetManager(LifeManager temp)
+    {
+        lifeManager = temp;
+    }
 }

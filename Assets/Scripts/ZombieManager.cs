@@ -56,10 +56,12 @@ public class ZombieManager : MonoBehaviour
         if ((spawnCount % 3) == 2)
         {
             ZombieCrazyController zombieCrazySpawn = Instantiate(zombieCrazy, new Vector3(Random.Range(-8, 8), 6, 1), Quaternion.identity);
+            zombieCrazySpawn.SetManager(scoreManager);
         }
         else
         {
             ZombieController zombieSpawn = Instantiate(zombie, new Vector3(Random.Range(-8, 8), 6, 1), Quaternion.identity);
+            zombieSpawn.SetManager(scoreManager);
         }
         spawnCount += 1;
     }

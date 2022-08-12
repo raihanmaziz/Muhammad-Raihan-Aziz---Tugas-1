@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TapManager : MonoBehaviour, IRaycastable
+public class TapManager : MonoBehaviour
 {
     [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private LifeManager lifeManager;
@@ -12,32 +12,46 @@ public class TapManager : MonoBehaviour, IRaycastable
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Raycasted();
-        }
-    }
+            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
 
-    public void Raycasted()
-    {
-        Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
-
-        if (hit.collider == null)
-        {
-            Debug.Log("Hit nothing!");
-        }
-
-        else
-        {
-            if (hit.collider.CompareTag("Human"))
+            if (hit.collider == null)
             {
-                lifeManager.LossHuman();
-                Destroy(hit.collider.gameObject);
+                Debug.Log("Hit nothing!");
             }
-            if (hit.collider.CompareTag("Zombie"))
+            else if (hit.collider.gameObject.GetComponent<IRaycastable>() == null)
             {
-                scoreManager.AddScore();
-                Destroy(hit.collider.gameObject);
+                Debug.Log("Object not raycastable");
+            }
+            else
+            {
+                hit.collider.gameObject.GetComponent<IRaycastable>().Raycasted();
             }
         }
     }
+
+    //public void Raycasted()
+    //{
+    //    Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    //    RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+
+    //    if (hit.collider == null)
+    //    {
+    //        Debug.Log("Hit nothing!");
+    //    }
+
+    //    else
+    //    {
+    //        if (hit.collider.CompareTag("Human"))
+    //        {
+    //            lifeManager.LossHuman();
+    //            Destroy(hit.collider.gameObject);
+    //        }
+    //        if (hit.collider.CompareTag("Zombie"))
+    //        {
+    //            scoreManager.AddScore();
+    //            Destroy(hit.collider.gameObject);
+    //        }
+    //    }
+    //}
 }
